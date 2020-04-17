@@ -1,0 +1,7 @@
+
+driver: oracle.jdbc.driver.OracleDriver
+url: jdbc:oracle:thin:@localhost:1521:XE
+dbuser: SYSTEM
+dbpassword: system
+server.servlet.contextPath: /medics
+
