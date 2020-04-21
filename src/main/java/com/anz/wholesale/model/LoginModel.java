@@ -8,17 +8,16 @@ public class LoginModel {
 	private String userName;
     private String userPassword;
 
-    char[] passwordInCharArray = userPassword.toCharArray();
+   // char[] passwordInCharArray = userPassword.toCharArray();
 	/* Arrays.fill(passwordInCharArray, '*'); */
 	
    
-	public char[] getPasswordInCharArray() {
-		return passwordInCharArray;
-	}
-
-	public void setPasswordInCharArray(char[] passwordInCharArray) {
-		this.passwordInCharArray = passwordInCharArray;
-	}
+	/*
+	 * public char[] getPasswordInCharArray() { return passwordInCharArray; }
+	 * 
+	 * public void setPasswordInCharArray(char[] passwordInCharArray) {
+	 * this.passwordInCharArray = passwordInCharArray; }
+	 */
 	
 			
 			
