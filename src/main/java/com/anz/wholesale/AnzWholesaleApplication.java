@@ -17,7 +17,7 @@ public class AnzWholesaleApplication {
 	public static void main(String[] args) {
 		try {
 		SpringApplication.run(AnzWholesaleApplication.class, args);
-		System.out.println("MY Medics is online");
+		LOGGER.info("MY Medics is online");
 		    } catch (Throwable e) {
 		        if(e.getClass().getName().contains("SilentExitException")) {
 		            LOGGER.debug("Spring is restarting the main thread - See spring-boot-devtools");

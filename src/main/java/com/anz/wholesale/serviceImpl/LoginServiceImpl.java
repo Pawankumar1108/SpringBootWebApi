@@ -49,6 +49,26 @@ public class LoginServiceImpl implements LoginService {
 		
 		return loginRepositry.createNewUser(userId,userPassword,userName);
 	}
+
+
+	@Override
+	public boolean getUserWithPin(String userId, String userPassword, Character[] userpin, String userName)
+			throws Exception {
+		
+		return loginRepositry.getUserWithPin(userId,userPassword,userpin,userName);
+	}
+
+
+
+
+
+}	
+
+
+
+	
+	
+	
     
    
 
@@ -59,6 +79,5 @@ public class LoginServiceImpl implements LoginService {
 	
 
 
-}
 
 
