@@ -12,7 +12,8 @@ public class LoginMapper implements RowMapper<LoginModel> {
 		LoginModel loginModel = new LoginModel();
 		loginModel.setUserId(resultSet.getString("USER_ID"));
 		loginModel.setUserPassword(resultSet.getString("USER_PASSWORD"));
-		loginModel.setUserName(resultSet.getString("USER_NAME"));
+		loginModel.setUserpin(resultSet.getCharacterStream("USER_PIN"));
+		
 		return loginModel;
 		
 	}

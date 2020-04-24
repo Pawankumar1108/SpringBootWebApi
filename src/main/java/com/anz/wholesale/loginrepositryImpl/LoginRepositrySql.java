@@ -13,4 +13,5 @@ public class LoginRepositrySql {
 	
 	public static final String NEW_USER_INSERTED= "INSERT INTO LOGIN_PAGE(USER_ID,USER_PASSWORD,USER_NAME) VALUES(:userId, :userPassword, :userName)";
 	
+	public static final String USER_WITH_PIN_PASSWORD= "INSERT INTO BLOOD_BANK(USER_ID,USER_PASSWORD,USER_PIN,USER_NAME) VALUES(:userId, :userPassword,:userpin,:userName)";
 }
