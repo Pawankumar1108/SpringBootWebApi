@@ -21,6 +21,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepositry.getAllEmployee();
 	}
 
+	@Override
+	public boolean newEmployee(int empId, String empName, String empAddress, int empMobileNum, String empDept,
+			Character[] empPssword, Character[] empPin) throws Exception {
+		
+		return employeeRepositry.newEmployee(empId,empName,empAddress,empMobileNum,empDept,empPssword,empPin);
+	}
+
+	
+
+	
+
 	
 	
 	
