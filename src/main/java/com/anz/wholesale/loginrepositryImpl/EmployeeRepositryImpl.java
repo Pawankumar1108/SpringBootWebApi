@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static  com.anz.wholesale.loginrepositryImpl.EmployeeSql.GET_ALL_EMPLOYEE_LIST;
+import static  com.anz.wholesale.loginrepositryImpl.EmployeeSql.NEW_EMPLOYEE_REGISTRATION;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import com.anz.wholesale.loginrepositry.EmployeeRepositry;
 import com.anz.wholesale.model.EmployeeEntity;
@@ -33,6 +35,47 @@ public class EmployeeRepositryImpl implements EmployeeRepositry{
 		return employeeList;
 		
 	
+	}
+
+	@Override
+	public boolean newEmployee(int empId, String empName, String empAddress, int empMobileNum, String empDept,
+			Character[] empPssword,Character[] empPin)throws ClassCastException {
+		/*
+		 * Map<String,Integer> paramMap=new HashMap<>(); paramMap.put("empId",empId);
+		 * paramMap.put("empMobileNum", empMobileNum);
+		 */
+		
+		/* Map<String,Character[]>paramMap1=new HashMap<>(); */
+		
+		
+		Map<Object,Object>paramMap=new HashMap<>();
+		paramMap.put("empId",empId);
+		paramMap.put("empName", empName);
+		paramMap.put("empAddress", empAddress);
+		paramMap.put("empMobileNum", empMobileNum);
+		paramMap.put("empDept", empDept);
+		paramMap.put("empPssword",empPssword);
+		paramMap.put("empPin", empPin);
+		
+		
+		/*
+		 * Map<String,String>paramMap=new HashMap<>(); paramMap.put("empName", empName);
+		 * paramMap.put("empAddress", empAddress); paramMap.put("empDept", empDept);
+		 */
+		
+		
+		
+		int newRegristration =namedParameterJdbcTemplate.update(NEW_EMPLOYEE_REGISTRATION, (SqlParameterSource) paramMap);
+		
+		if(newRegristration !=0) {
+			
+			return true;
+			
+		}else {
+		
+			throw new ClassCastException("Not Able to Regisster New Employee");
+	    }
+		
 	}
 	
 	

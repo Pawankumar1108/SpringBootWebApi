@@ -5,13 +5,11 @@ public class EmployeeEntity {
 	private int empId;
 	private String empName;
 	private String empAddress;
-	private int empMobileNum;
+	private Integer empMobileNum;
 	private String empDept;
-	private char[] empPssword =new char[8];
-	private char[]empPin=new char[5];
-	
-	
-	
+	private Character[] empPssword =new Character[8];
+	private Character[]empPin=new Character[5];
+
 	
 	
 	public int getEmpId() {
@@ -44,16 +42,16 @@ public class EmployeeEntity {
 	public void setEmpDept(String empDept) {
 		this.empDept = empDept;
 	}
-	public char[] getEmpPssword() {
+	public Character[] getEmpPssword() {
 		return empPssword;
 	}
-	public void setEmpPssword(char[] empPssword) {
+	public void setEmpPssword(Character[] empPssword) {
 		this.empPssword = empPssword;
 	}
-	public char[] getEmpPin() {
+	public Character[] getEmpPin() {
 		return empPin;
 	}
-	public void setEmpPin(char[] empPin) {
+	public void setEmpPin(Character[] empPin) {
 		this.empPin = empPin;
 	}
 	
