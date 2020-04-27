@@ -65,7 +65,7 @@ public class EmployeeRepositryImpl implements EmployeeRepositry{
 		
 		
 		
-		int newRegristration =namedParameterJdbcTemplate.update(NEW_EMPLOYEE_REGISTRATION, (SqlParameterSource) paramMap);
+   		int newRegristration =namedParameterJdbcTemplate.update(NEW_EMPLOYEE_REGISTRATION, (SqlParameterSource) paramMap);
 		
 		if(newRegristration !=0) {
 			
