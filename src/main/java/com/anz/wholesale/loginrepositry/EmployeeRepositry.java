@@ -8,7 +8,9 @@ public interface EmployeeRepositry {
 	
 	public List<EmployeeEntity> getAllEmployee();
 	
-	public boolean newEmployee(int empId, String empName, String empAddress, int empMobileNum, String empDept,Character[]empPssword, Character[] empPin)throws Exception;
+	public boolean newEmployee(Integer empId, String empName, String empAddress, Integer empMobileNum, String empDept,Character[]empPssword, Character[] empPin)throws Exception;
+
+	public boolean getNewUpdate(Integer empId, String empName);
 		
 	
 

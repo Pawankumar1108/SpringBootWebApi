@@ -2,7 +2,7 @@ package com.anz.wholesale.model;
 
 public class EmployeeEntity {
 	
-	private int empId;
+	private Integer empId;
 	private String empName;
 	private String empAddress;
 	private Integer empMobileNum;
@@ -12,10 +12,11 @@ public class EmployeeEntity {
 
 	
 	
-	public int getEmpId() {
+	
+	public Integer getEmpId() {
 		return empId;
 	}
-	public void setEmpId(int empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 	public String getEmpName() {
@@ -30,10 +31,11 @@ public class EmployeeEntity {
 	public void setEmpAddress(String empAddress) {
 		this.empAddress = empAddress;
 	}
-	public int getEmpMobileNum() {
+	
+	public Integer getEmpMobileNum() {
 		return empMobileNum;
 	}
-	public void setEmpMobileNum(int empMobileNum) {
+	public void setEmpMobileNum(Integer empMobileNum) {
 		this.empMobileNum = empMobileNum;
 	}
 	public String getEmpDept() {

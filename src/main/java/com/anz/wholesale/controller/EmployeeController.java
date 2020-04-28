@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,6 +41,18 @@ public class EmployeeController /* extends Exception */ {
 		EmployeeEntity employeeEntity = objectMapper.readValue(jsonRequest, EmployeeEntity.class);
 		return employeeService.newEmployee(employeeEntity.getEmpId(),employeeEntity.getEmpName(),employeeEntity.getEmpAddress(),employeeEntity.getEmpMobileNum(),employeeEntity.getEmpDept(),employeeEntity.getEmpPssword(),employeeEntity.getEmpPin() );
 		
+	}
+	
+	//Creating Api for Update Database record from Existing Records
+	
+	@PutMapping("/updaterecord")
+	public boolean updateRecord(@RequestBody String jsonRequest)throws Exception {
+		
+		LOGGER.info("The Updating Record is Excuting");
+		ObjectMapper objectMapper = new ObjectMapper();
+		EmployeeEntity employeeEntity = objectMapper.readValue(jsonRequest, EmployeeEntity.class);
+		
+		return employeeService.getNewUpdate(employeeEntity.getEmpId(),employeeEntity.getEmpName());
 	}
 	
 

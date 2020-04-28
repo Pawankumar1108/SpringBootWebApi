@@ -13,6 +13,8 @@ public class EmployeeMapper implements RowMapper<EmployeeEntity> {
 	public EmployeeEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
        EmployeeEntity employeeEntity =new EmployeeEntity();
+       employeeEntity.setEmpId(rs.getInt("EMP_ID"));
+       
 		
 		return employeeEntity;
 		
