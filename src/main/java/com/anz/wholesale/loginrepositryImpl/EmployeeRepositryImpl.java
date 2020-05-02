@@ -35,7 +35,7 @@ public class EmployeeRepositryImpl implements EmployeeRepositry{
 		
 		List<EmployeeEntity> employeeList=namedParameterJdbcTemplate.query(GET_ALL_EMPLOYEE_LIST,paramMap, new EmployeeMapper());
 		
-		LOGGER.info("The Database is Not Able to Fetch All the Employee List");
+		LOGGER.info("All the list of Employee ");
 		
 		return employeeList;
 		
