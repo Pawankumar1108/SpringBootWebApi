@@ -5,14 +5,16 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.anz.wholesale.model.EmployeeEntity;
-import com.anz.wholesale.model.LoginModel;
 import com.anz.wholesale.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -43,16 +45,31 @@ public class EmployeeController /* extends Exception */ {
 		
 	}
 	
-	//Creating Api for Update Database record from Existing Records
+	// Updating Database record from Existing Records
 	
-	@PutMapping("/updaterecord")
-	public boolean updateRecord(@RequestBody String jsonRequest)throws Exception {
+	@PutMapping("/employee/{empId}")
+	public boolean updateRecord(@RequestHeader Integer empId)throws Exception {
 		
 		LOGGER.info("The Updating Record is Excuting");
-		ObjectMapper objectMapper = new ObjectMapper();
-		EmployeeEntity employeeEntity = objectMapper.readValue(jsonRequest, EmployeeEntity.class);
+		/*
+		 * ObjectMapper objectMapper = new ObjectMapper(); EmployeeEntity employeeEntity
+		 * = objectMapper.readValue(jsonRequest, EmployeeEntity.class);
+		 */
+		return employeeService.getNewUpdate(empId);
+	}
+	
+	//Removing the Existing Employee From the Database
+	@DeleteMapping("/employee/{empId}")
+	public boolean removeEmployee(@RequestHeader Integer empId)throws Exception{
+
+		LOGGER.info("Removing Employee Running ");
+		/*
+		 * ObjectMapper objectMapper = new ObjectMapper(); EmployeeEntity employeeEntity
+		 * = objectMapper.readValue(jsonRequest, EmployeeEntity.class);
+		 */
 		
-		return employeeService.getNewUpdate(employeeEntity.getEmpId(),employeeEntity.getEmpName());
+		return employeeService.getRemoved(empId);
+		
 	}
 	
 

@@ -13,8 +13,11 @@ public interface EmployeeService {
 	public boolean newEmployee(Integer empId, String empName, String empAddress, Integer empMobileNum, String empDept,
 			Character[] empPssword, Character[] empPin)throws Exception;
 	
-	public boolean getNewUpdate(Integer empId,String empName)throws Exception;
+	public boolean getNewUpdate(Integer empId)throws Exception;
 
+	public boolean getRemoved(Integer empId)throws Exception;
+
+	
 
 	
 }

@@ -64,20 +64,22 @@ public class LoginRepositryImpl  implements LoginRepositry  {
 	
 
 	@Override
-	public boolean isUserPasswordExist(String userPassword)throws Exception {
+	public boolean isUserPasswordExist(String userPassword) {
 		Map<String , String> paramMap = new HashMap<>();
 		paramMap.put("userPassword", userPassword);
 		
-		try {
+		
 			LoginModel  loginModel= namedParameterJdbcTemplate.queryForObject(IS_USER_PASSWORD_EXIST,paramMap , new LoginMapper());
-
-			return true;
-
-		}catch(Exception e) {
 			
-			throw new Exception("This UserPassword  doesn't Exist , Please Contact DBA");
-
-		}
+			if(loginModel !=null) {
+			return true;
+			}else{
+				
+				throw new RuntimeException("This UserPassword  doesn't Exist , Please Contact DBA");	
+				
+			}
+			
+			
 
 	}
 
@@ -117,30 +119,26 @@ public class LoginRepositryImpl  implements LoginRepositry  {
 
 	}
 
-	@Override
-	public boolean getUserWithPin(String userId, String userPassword, Character[] userpin, String userName) {
-		
-		
-		
-		Map<String,String>paramMap=new HashMap<>();
-		paramMap.put("userId", userId);
-		paramMap.put("userPassword", userPassword);
-		paramMap.put("userName", userName);
-		//paramMap.putAll(paramMap2);
-		
-		Map<Character[],Character[]>paramMap2=new HashMap<>();
-		paramMap2.putAll(paramMap);
-		paramMap2.put(userpin, userpin);
-
-		
-		int newPinUser =namedParameterJdbcTemplate.update(USER_WITH_PIN_PASSWORD, paramMap);
-		
-		if(newPinUser !=0) {
-		return true;
-		}else {
-			throw new RuntimeException("The New User Can't be Created");
-		}
-	}
+	/*
+	 * @Override public boolean getUserWithPin(String userId, String userPassword,
+	 * Character[] userpin, String userName) {
+	 * 
+	 * 
+	 * 
+	 * Map<String,String>paramMap=new HashMap<>(); paramMap.put("userId", userId);
+	 * paramMap.put("userPassword", userPassword); paramMap.put("userName",
+	 * userName); //paramMap.putAll(paramMap2);
+	 * 
+	 * Map<Character[],Character[]>paramMap2=new HashMap<>();
+	 * paramMap2.putAll(paramMap); paramMap2.put(userpin, userpin);
+	 * 
+	 * 
+	 * int newPinUser =namedParameterJdbcTemplate.update(USER_WITH_PIN_PASSWORD,
+	 * paramMap);
+	 * 
+	 * if(newPinUser !=0) { return true; }else { throw new
+	 * RuntimeException("The New User Can't be Created"); } }
+	 */
 	
 	
 

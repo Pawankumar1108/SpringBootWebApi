@@ -51,12 +51,12 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 
-	@Override
-	public boolean getUserWithPin(String userId, String userPassword, Character[] userpin, String userName)
-			throws Exception {
-		
-		return loginRepositry.getUserWithPin(userId,userPassword,userpin,userName);
-	}
+	/*
+	 * @Override public boolean getUserWithPin(String userId, String userPassword,
+	 * Character[] userpin, String userName) throws Exception {
+	 * 
+	 * return loginRepositry.getUserWithPin(userId,userPassword,userpin,userName); }
+	 */
 
 
 
