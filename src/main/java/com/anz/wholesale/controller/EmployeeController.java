@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.anz.wholesale.model.EmployeeEntity;
+import com.anz.wholesale.model.EmployeePasswordResponse;
 import com.anz.wholesale.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -71,6 +72,20 @@ public class EmployeeController /* extends Exception */ {
 		return employeeService.getRemoved(empId);
 		
 	}
+	
+	
+	@GetMapping("/employee/{empPssword}")
+	public EmployeePasswordResponse employeePasswordResponse(@RequestParam String empPssword) {
+		
+		if(!empPssword.contentEquals(empPssword)) {
+			
+			throw new IncorrectPasswordException("Wrong Password");
+			}
+		
+		
+		return new EmployeePasswordResponse("Password Accepted"); 
+	}
+	
 	
 
 	/*
