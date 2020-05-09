@@ -1,13 +1,11 @@
 package com.anz.wholesale.controller;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.anz.wholesale.model.EmployeeEntity;
-import com.anz.wholesale.model.EmployeePasswordResponse;
+import com.anz.wholesale.customException.EmployeePasswordResponse;
+import com.anz.wholesale.customException.IncorrectPasswordException;
 import com.anz.wholesale.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -35,7 +34,8 @@ public class EmployeeController /* extends Exception */ {
 			return employeeService.getAllEmployee();
 	}
 	
-	//Post Method used for the Inseeting New Record s into the table
+	//Post Method used for the Inserting New Record s into the table
+	
 	@PostMapping("/newregistration")
 	public boolean newEmployeeRegisrty(@RequestBody String jsonRequest)throws Exception{
 		
@@ -60,6 +60,7 @@ public class EmployeeController /* extends Exception */ {
 	}
 	
 	//Removing the Existing Employee From the Database
+	
 	@DeleteMapping("/employee/{empId}")
 	public boolean removeEmployee(@RequestHeader Integer empId)throws Exception{
 
@@ -79,7 +80,12 @@ public class EmployeeController /* extends Exception */ {
 		
 		if(!empPssword.contentEquals(empPssword)) {
 			
-			throw new IncorrectPasswordException("Wrong Password");
+			throw new IncorrectPasswordException(
+					"Wrong Password",
+				      "Details:-You've entered an incorrect passcode, try again with correct one",
+			          " hints:- nameletter with numeric",
+			          " next Action:- :-Ask your friends for password",
+			          "Support:- Reach out to DBA for more help" );
 			}
 		
 		

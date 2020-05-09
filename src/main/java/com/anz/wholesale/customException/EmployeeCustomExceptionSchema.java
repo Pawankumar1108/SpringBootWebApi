@@ -1,4 +1,4 @@
-package com.anz.wholesale.model;
+package com.anz.wholesale.customException;
 
 /*import lombok.Data;
 import lombok.Getter;
@@ -8,11 +8,16 @@ import lombok.Setter;
 @Setter
 @Data*/
 public class EmployeeCustomExceptionSchema {
+
+
+	/* @Getter @Setter */   
+	private String message;
+	private String details;
+	private String hint;
+	private String nextActions;
+	private String support;
 	
-	
-	/* @Getter @Setter */
-	  private String message;
-	  public String getMessage() {
+	public String getMessage() {
 		return message;
 	}
 
@@ -52,24 +57,21 @@ public class EmployeeCustomExceptionSchema {
 		this.support = support;
 	}
 
-	private String details;
-	  private String hint;
-	  private String nextActions;
-	  private String support;
-	
-	  protected EmployeeCustomExceptionSchema() {}
-	  
-	  public EmployeeCustomExceptionSchema(String message, String details, String hint, String nextActions,
+
+
+	protected EmployeeCustomExceptionSchema() {}
+
+	public EmployeeCustomExceptionSchema(String message, String details, String hint, String nextActions,
 			String support) {
-		super();
+
 		this.message = message;
 		this.details = details;
 		this.hint = hint;
 		this.nextActions = nextActions;
 		this.support = support;
 	}
-	  
-	  
-	
-	
+
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.anz.wholesale.model;
+package com.anz.wholesale.customException;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
