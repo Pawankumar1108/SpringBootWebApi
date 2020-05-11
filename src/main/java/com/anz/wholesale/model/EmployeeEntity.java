@@ -9,6 +9,8 @@ public class EmployeeEntity {
 	private String empDept;
 	private Character[] empPssword =new Character[8];
 	private Character[]empPin=new Character[5];
+	
+	
 
 	
 	

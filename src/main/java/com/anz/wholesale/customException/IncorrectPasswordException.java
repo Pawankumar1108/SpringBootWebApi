@@ -5,6 +5,7 @@ package com.anz.wholesale.customException;
 	public class IncorrectPasswordException extends RuntimeException {
 		
 		
+		private static final long serialVersionUID = 1L;
 		
 		  private String message;
 		  private String details;

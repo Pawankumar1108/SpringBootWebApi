@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -29,7 +30,7 @@ public class EmployeeController /* extends Exception */ {
 	//Get Method used to View or Fetch all the Records from the database
 	@GetMapping("/employeelist")
 	public List<EmployeeEntity> allEmployee() throws Exception {
-		
+		   
 			LOGGER.info("All Registered User in Database is  Excecuting");
 			return employeeService.getAllEmployee();
 	}
@@ -48,7 +49,7 @@ public class EmployeeController /* extends Exception */ {
 	
 	// Updating Database record from Existing Records
 	
-	@PutMapping("/employee/{empId}")
+	@PutMapping("/employee/{empId}") 
 	public boolean updateRecord(@RequestHeader Integer empId)throws Exception {
 		
 		LOGGER.info("The Updating Record is Excuting");
@@ -93,6 +94,20 @@ public class EmployeeController /* extends Exception */ {
 	}
 	
 	
+	//@ExceptionHandler(Exception.class)
+	@GetMapping("/employee/{empName")
+	public EmployeePasswordResponse  employeeUser(@RequestParam String empName) {
+		if(!empName.equals(empName)) {
+			
+			throw new IncorrectPasswordException(
+					"","","","","");
+		}
+		
+		return new EmployeePasswordResponse("UserName Matched");
+		
+		
+		
+	}
 
 	/*
 	 * 
