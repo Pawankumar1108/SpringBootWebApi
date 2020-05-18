@@ -5,7 +5,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.anz.wholesale.model.EmployeeEntity;
+import com.anz.wholesale.customException.CustomException;
 import com.anz.wholesale.customException.EmployeePasswordResponse;
 import com.anz.wholesale.customException.IncorrectPasswordException;
 import com.anz.wholesale.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController("Employee")
-public class EmployeeController /* extends Exception */ {
+public class EmployeeController  {
 
 	@Autowired
 	EmployeeService employeeService;
@@ -95,7 +95,7 @@ public class EmployeeController /* extends Exception */ {
 	
 	
 	//@ExceptionHandler(Exception.class)
-	@GetMapping("/employee/{empName")
+	@GetMapping("/employee/{empName}")
 	public EmployeePasswordResponse  employeeUser(@RequestParam String empName) {
 		if(!empName.equals(empName)) {
 			
@@ -105,20 +105,32 @@ public class EmployeeController /* extends Exception */ {
 		
 		return new EmployeePasswordResponse("UserName Matched");
 		
-		
-		
-	}
+  }
+	
 
-	/*
-	 * 
-	 * public void employeesNotFoundException()throws EmployeesNotFoundException {
-	 * try { wrapException(new )
-	 * 
-	 * }catch(EmployeesNotFoundException e) { throw new
-	 * EmployeesNotFoundException("The Exception is Handeled ");
-	 * 
-	 * }
-	 */
+
+  @GetMapping("/employee/{empPin")
+  public boolean getEemployeePin(@RequestHeader Character[] empPin) throws Exception {
+	  
+	  LOGGER.info("Employee Pin Validation.....");
+	  
+	  if(!empPin.equals(empPin)){
+		  throw new CustomException(
+				  "error- Incorrect Pin",
+				  "message- Please Insert Correct Pin",
+				  "action- Try to Look at Hint",
+				  "dueTo- manual Error");
+	  }
+	  
+	  return employeeService.getRemoved(empPin) ;
+	  
+	  
+   }
+
 }
+
+
+
+
 
 

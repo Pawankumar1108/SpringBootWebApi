@@ -15,7 +15,7 @@ public interface EmployeeService {
 	
 	public boolean getNewUpdate(Integer empId)throws Exception;
 
-	public boolean getRemoved(Integer empId)throws Exception;
+	public boolean getRemoved(Character[] empPin)throws Exception;
 
 	
 
