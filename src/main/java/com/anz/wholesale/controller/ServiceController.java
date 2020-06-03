@@ -96,6 +96,7 @@ public class ServiceController {
 		LOGGER.info("Reset Password Excuting");
 		ObjectMapper objectMapper = new ObjectMapper();
 		LoginModel loginModel = objectMapper.readValue(jsonRequest, LoginModel.class);
+		
 
 		return loginService.getUserPasswordUpdate(loginModel.getUserPassword(), loginModel.getUserId());
 
@@ -124,5 +125,6 @@ public class ServiceController {
 	 * 
 	 * }
 	 */
+	
 
 }
