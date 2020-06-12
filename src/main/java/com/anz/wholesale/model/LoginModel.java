@@ -5,18 +5,16 @@ public class LoginModel {
 	private String userId;
 	private String userName;
 	private String userPassword;
-	private Character [] userpin =new Character[12];
-
-
-
-
-	public Character[] getUserpin() {
-		return userpin;
-	}
-
-	public void setUserpin(Character[] userpin) {
-		this.userpin = userpin;
-	}
+	/*
+	 * private Character [] userpin =new Character[2];
+	 * 
+	 * 
+	 * 
+	 * 
+	 * public Character[] getUserpin() { return userpin; }
+	 * 
+	 * public void setUserpin(Character[] userpin) { this.userpin = userpin; }
+	 */
 
 	public String getUserPassword() {
 		return userPassword;

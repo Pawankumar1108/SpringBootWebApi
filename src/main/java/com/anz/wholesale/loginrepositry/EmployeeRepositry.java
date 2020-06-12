@@ -10,7 +10,9 @@ public interface EmployeeRepositry {
 	
 	public boolean newEmployee(Integer empId, String empName, String empAddress, Integer empMobileNum, String empDept,Character[]empPssword, Character[] empPin)throws Exception;
 
-	public boolean getNewUpdate(Integer empId, String empName);
+	public boolean getNewUpdate(Integer empId);
+
+	public boolean getRemoved(Integer empId);
 		
 	
 

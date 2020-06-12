@@ -96,6 +96,7 @@ public class ServiceController {
 		LOGGER.info("Reset Password Excuting");
 		ObjectMapper objectMapper = new ObjectMapper();
 		LoginModel loginModel = objectMapper.readValue(jsonRequest, LoginModel.class);
+		
 
 		return loginService.getUserPasswordUpdate(loginModel.getUserPassword(), loginModel.getUserId());
 
@@ -112,14 +113,18 @@ public class ServiceController {
 
 	}
 	
-	@PostMapping("/userpin")
-	public boolean userPinCreator(@RequestBody String jsonRequest)throws Exception{
-		LOGGER.info("The New User Creating with Pin Feature ");
-		ObjectMapper objectMapper = new ObjectMapper();
-		LoginModel loginModel = objectMapper.readValue(jsonRequest, LoginModel.class);
-		return loginService.getUserWithPin(loginModel.getUserId(), loginModel.getUserPassword(),loginModel.getUserpin(),
-				loginModel.getUserName());
-
-	}
+	/*
+	 * @PostMapping("/userpin") public boolean userPinCreator(@RequestBody String
+	 * jsonRequest)throws Exception{
+	 * LOGGER.info("The New User Creating with Pin Feature "); ObjectMapper
+	 * objectMapper = new ObjectMapper(); LoginModel loginModel =
+	 * objectMapper.readValue(jsonRequest, LoginModel.class); return
+	 * loginService.getUserWithPin(loginModel.getUserId(),
+	 * loginModel.getUserPassword(),loginModel.getUserpin(),
+	 * loginModel.getUserName());
+	 * 
+	 * }
+	 */
+	
 
 }

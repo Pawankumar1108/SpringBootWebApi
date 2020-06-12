@@ -17,7 +17,10 @@ public interface LoginService {
 	
     public boolean createNewUser(String userId, String userPassword, String userName);
     
-	public boolean getUserWithPin(String userId, String userPassword, Character[] userpin, String userName)throws Exception;
+	/*
+	 * public boolean getUserWithPin(String userId, String userPassword, Character[]
+	 * userpin, String userName)throws Exception;
+	 */
 	
 	
 	

@@ -30,11 +30,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 
-
-    @Override
-	public boolean getNewUpdate(Integer empId, String empName) throws Exception {
+	@Override
+	public boolean getRemoved(Integer empId) throws Exception {
 		
-		return  employeeRepositry.getNewUpdate(empId,empName);
+		return employeeRepositry.getRemoved(empId);
+	}
+
+
+
+	@Override
+	public boolean getNewUpdate(Integer empId) throws Exception {
+		
+		return employeeRepositry.getNewUpdate(empId);
 	}
 
 	
